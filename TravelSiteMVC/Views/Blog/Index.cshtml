@@ -43,10 +43,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 @foreach (var x in Model.Deger1)
                 {
                     <div class="single-grid">
-                        <img src="@x.BlogImage" alt="" style="margin-bottom:20px" />
+                        <img src="@x.BlogImage" alt="" style="width:730px;height:486px;margin-bottom:20px" />
                         <a href="/Blog/BlogDetay/@x.ID">@x.Baslik</a>
                         <p>
-                            @x.Aciklama.Substring(0,500)
+                            @x.Aciklama.Substring(0,500)...
                         </p>
                     </div>
                     <br><br />

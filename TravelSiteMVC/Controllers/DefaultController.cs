@@ -13,21 +13,21 @@ namespace TravelSiteMVC.Controllers
         // GET: Default
         
         Context c = new Context();
-        public ActionResult Index()
+        public ActionResult Index() 
         {
-            var degerler =c.Blogs.Take(4).ToList();
+            var degerler =c.Blogs.Take(10).ToList();
             return View(degerler);
         }
         public ActionResult About()
         {
             return View();
         }
-        public PartialViewResult Partial1()
+        public PartialViewResult Partial1() 
         {
             var degerler = c.Blogs.OrderByDescending(x => x.ID).Take(2).ToList();
             return PartialView(degerler);
         }
-        public PartialViewResult Partial2()
+        public PartialViewResult Partial2() 
         {
             var deger=c.Blogs.Where(x=>x.ID==1).ToList();
             return PartialView(deger);
@@ -44,8 +44,8 @@ namespace TravelSiteMVC.Controllers
         }
         public PartialViewResult Partial5()
         {
-            var deger = c.Blogs.t
-            return PartialView();
+            var deger = c.Blogs.Take(3).OrderByDescending(x=>x.ID).ToList();
+            return PartialView(deger);
         }
     }
 }
