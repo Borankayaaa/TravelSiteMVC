@@ -11,6 +11,7 @@ namespace TravelSiteMVC.Controllers
     {
         // GET: Admin
         Context c = new Context();
+        [Authorize]
         public ActionResult Index()
         {
             var degerler = c.Blogs.ToList();
@@ -61,6 +62,21 @@ namespace TravelSiteMVC.Controllers
             c.yorumlars.Remove(b);
             c.SaveChanges();
             return RedirectToAction("YorumListesi");
+        }
+        public ActionResult YorumGetir(int id)
+        {
+            var yr = c.yorumlars.Find(id);
+            return View("yorumGetir", yr);
+        }
+        public ActionResult YorumGuncelle(Yorumlar y) 
+        {
+            var yrm = c.yorumlars.Find(y.ID);
+            yrm.KullaniciAdi = y.KullaniciAdi;
+            yrm.Mail = y.Mail;
+            yrm.Yorum = y.Yorum;
+            c.SaveChanges();
+            return RedirectToAction("YorumListesi");
+           
         }
     }
 }
