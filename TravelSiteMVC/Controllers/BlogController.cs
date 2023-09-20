@@ -23,10 +23,11 @@ namespace TravelSiteMVC.Controllers
         public ActionResult BlogDetay(int id) 
         {
            //var blogbul  = c.Blogs.Where(x => x.ID ==   id).ToList();
-           by.Deger1= c.Blogs.Where(x=> x.ID==id).ToList();
+            by.Deger1=c.Blogs.Where(x=> x.ID==id).ToList();
             by.Deger2=c.yorumlars.Where(x=> x.Blogid==id).ToList();
             return View(by);
         }
+
         [HttpGet]
         public PartialViewResult YorumYap(int id)
         {
@@ -39,10 +40,9 @@ namespace TravelSiteMVC.Controllers
         {
             c.yorumlars.Add(y);
             c.SaveChanges();
-            return PartialView("Index");
+            return PartialView();
         }
-        
 
-        
+
     }
 }

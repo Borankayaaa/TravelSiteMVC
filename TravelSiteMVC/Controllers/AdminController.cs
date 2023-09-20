@@ -50,5 +50,17 @@ namespace TravelSiteMVC.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult YorumListesi()
+        {
+            var yorumlar = c.yorumlars.ToList();
+            return View(yorumlar);
+        }
+        public ActionResult YorumSil(int id)
+        {
+            var b = c.yorumlars.Find(id);
+            c.yorumlars.Remove(b);
+            c.SaveChanges();
+            return RedirectToAction("YorumListesi");
+        }
     }
 }
